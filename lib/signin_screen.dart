@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:smartcity/constants.dart';
+import 'package:smartcity/home_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -112,14 +113,22 @@ class SignInScreen extends StatelessWidget {
                             ),
                             const Spacer(),
                             Container(
-                              padding: const EdgeInsets.all(16),
-                              decoration: const BoxDecoration(
-                                  shape: BoxShape.circle, color: kPrimaryColor),
-                              child: const Icon(
-                                Icons.arrow_forward,
-                                color: Colors.black,
-                              ),
-                            )
+                                padding: const EdgeInsets.all(16),
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: kPrimaryColor),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return const HomeScreen();
+                                    }));
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.black,
+                                  ),
+                                ))
                           ],
                         ),
                       )
