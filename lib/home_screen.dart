@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: size.width - 32,
                 height: size.height / 1.4,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.black,
                   borderRadius: BorderRadius.horizontal(
                     left: Radius.circular(10),
                     right: Radius.circular(10),

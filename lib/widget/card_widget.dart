@@ -26,9 +26,9 @@ class CardWidget extends StatelessWidget {
           SlidableAction(
             borderRadius: BorderRadius.circular(16),
             onPressed: (_) {},
-            backgroundColor: kBackGroundColor,
-            foregroundColor: kPrimaryColor,
-            icon: Icons.done_outline_rounded,
+            backgroundColor: kPrimaryColor,
+            foregroundColor: kBackGroundColor,
+            icon: Icons.done_outlined,
             label: 'Pronto',
           ),
           const SizedBox(
@@ -46,7 +46,7 @@ class CardWidget extends StatelessWidget {
       ),
       child: Card(
         elevation: 8,
-        shadowColor: const Color(0xff2da9ef),
+        shadowColor: kBackGroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             10,
