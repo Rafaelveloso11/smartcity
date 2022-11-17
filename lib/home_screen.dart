@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartcity/constants.dart';
 
 import 'package:smartcity/model/task.dart';
 import 'package:smartcity/widget/card_widget.dart';
@@ -35,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xff8d70fe),
-                      Color(0xff2da9ef),
+                      kPrimaryColor,
+                      kBackGroundColor,
                     ],
                     begin: Alignment.centerRight,
                     end: Alignment.centerLeft,
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 60,
                     ),
                     Text(
-                      'Todo App',
+                      'Fulano da Silva',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 36,
@@ -57,32 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(
                       height: 8,
-                    ),
-                    ListTile(
-                      leading: Text(
-                        '26',
-                        style: TextStyle(
-                          fontSize: 52,
-                          color: Colors.amber,
-                        ),
-                      ),
-                      title: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 4.0),
-                        child: Text(
-                          'Agustus',
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      subtitle: Text(
-                        '2022',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -126,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: const Color(0xff2da9ef),
+        color: kBackGroundColor,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: Row(
@@ -137,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {},
               icon: const Icon(
                 Icons.list_alt_rounded,
-                color: Colors.white,
+                color: kPrimaryColor,
                 size: 28,
               ),
             ),
@@ -153,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               icon: const Icon(
                 Icons.archive_outlined,
-                color: Colors.white,
+                color: kPrimaryColor,
                 size: 28,
               ),
             ),
@@ -168,8 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 return const FormWidget();
               });
         },
-        backgroundColor: const Color(0xff2da9ef),
-        foregroundColor: const Color(0xffffffff),
+        backgroundColor: kPrimaryColor,
+        foregroundColor: kBackGroundColor,
         child: const Icon(
           Icons.add,
           size: 36,

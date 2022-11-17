@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
+import 'package:smartcity/constants.dart';
 
 import '../model/task.dart';
 
@@ -25,10 +26,10 @@ class CardWidget extends StatelessWidget {
           SlidableAction(
             borderRadius: BorderRadius.circular(16),
             onPressed: (_) {},
-            backgroundColor: const Color(0xff2da9ef),
-            foregroundColor: Colors.white,
+            backgroundColor: kBackGroundColor,
+            foregroundColor: kPrimaryColor,
             icon: Icons.done_outline_rounded,
-            label: 'Done',
+            label: 'Pronto',
           ),
           const SizedBox(
             width: 2,
@@ -39,7 +40,7 @@ class CardWidget extends StatelessWidget {
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             icon: Icons.delete,
-            label: 'Remove',
+            label: 'Remover',
           ),
         ],
       ),
@@ -61,7 +62,7 @@ class CardWidget extends StatelessWidget {
               ? const SizedBox()
               : Container(
                   width: 2,
-                  color: const Color(0xff2da9ef),
+                  color: kPrimaryColor,
                 ),
           title: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -76,14 +77,14 @@ class CardWidget extends StatelessWidget {
           subtitle: Text(
             task.description,
             style: TextStyle(
-              color: Colors.blue.shade700,
+              color: kPrimaryColor,
               fontSize: 16,
             ),
           ),
           trailing: Text(
             task.isDone ? 'Done' : DateFormat('hh:mm a').format(task.taskTime),
             style: const TextStyle(
-              color: Colors.black45,
+              color: kPrimaryColor,
               fontSize: 16,
             ),
           ),
