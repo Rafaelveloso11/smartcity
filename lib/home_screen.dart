@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:smartcity/constants.dart';
 
 import 'package:smartcity/model/task.dart';
+import 'package:smartcity/signin_screen.dart';
 import 'package:smartcity/widget/card_widget.dart';
 import 'package:smartcity/widget/form_widget.dart';
 
@@ -39,8 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       kPrimaryColor,
                       kBackGroundColor,
                     ],
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
                 child: Column(
@@ -111,23 +114,41 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.list_alt_rounded,
+                Icons.whatsapp,
                 color: kPrimaryColor,
                 size: 28,
               ),
             ),
             IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return const ArchivePage();
-                    },
-                  ),
-                );
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: const Text("Aviso!"),
+                          content: Text("Deseja Sair ? "),
+                          actions: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return const SignInScreen();
+                                  }));
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    primary: kPrimaryColor),
+                                child: const Text("Sim")),
+                            ElevatedButton(
+                                onPressed: () async {
+                                  Navigator.pop(context);
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.red),
+                                child: const Text("Não")),
+                          ],
+                        ));
               },
               icon: const Icon(
-                Icons.archive_outlined,
+                Icons.exit_to_app,
                 color: kPrimaryColor,
                 size: 28,
               ),

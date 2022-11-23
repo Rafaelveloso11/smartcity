@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartcity/constants.dart';
 
 class FormWidget extends StatefulWidget {
   const FormWidget({Key? key}) : super(key: key);
@@ -16,7 +17,10 @@ class _FormWidgetState extends State<FormWidget> {
           16,
         ),
       ),
-      title: const Text('New Task'),
+      title: const Text(
+        'Nova Solicitação',
+        style: TextStyle(color: kPrimaryColor),
+      ),
       content: SizedBox(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -24,16 +28,16 @@ class _FormWidgetState extends State<FormWidget> {
             TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                hintText: 'Task',
+                hintText: 'Tarefa',
                 hintStyle: const TextStyle(
-                  color: Colors.grey,
+                  color: kPrimaryColor,
                 ),
               ),
             ),
@@ -43,16 +47,16 @@ class _FormWidgetState extends State<FormWidget> {
             TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                hintText: 'Sub Task',
+                hintText: 'CEP',
                 hintStyle: const TextStyle(
-                  color: Colors.grey,
+                  color: kPrimaryColor,
                 ),
               ),
             ),
@@ -61,21 +65,58 @@ class _FormWidgetState extends State<FormWidget> {
             ),
             TextField(
               decoration: InputDecoration(
-                suffixIcon: Icon(
-                  Icons.calendar_month,
-                  color: Colors.grey.shade900,
-                ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 2, color: Colors.grey),
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                hintText: 'Time',
+                hintText: 'Endereço',
                 hintStyle: const TextStyle(
-                  color: Colors.grey,
+                  color: kPrimaryColor,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                hintText: 'Bairro',
+                hintStyle: const TextStyle(
+                  color: kPrimaryColor,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            TextField(
+              maxLines: 4,
+              decoration: InputDecoration(
+                // ignore: prefer_const_constructors
+
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 2, color: kPrimaryColor),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                hintText: 'Descrição',
+                hintStyle: const TextStyle(
+                  color: kPrimaryColor,
                 ),
               ),
             )
@@ -90,15 +131,15 @@ class _FormWidgetState extends State<FormWidget> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
-              primary: const Color(0xff2da9ef),
+              primary: kPrimaryColor,
             ),
             onPressed: () {
               Navigator.of(context).pop();
             },
             child: const Text(
-              'Add',
+              'Adicionar',
               style: TextStyle(
-                color: Colors.white,
+                color: kBackGroundColor,
                 fontSize: 16,
               ),
             ),

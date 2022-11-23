@@ -69,20 +69,24 @@ class CardWidget extends StatelessWidget {
             child: Text(
               task.taskName,
               style: const TextStyle(
-                fontSize: 24,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           subtitle: Text(
             task.description,
+            // ignore: prefer_const_constructors
             style: TextStyle(
               color: kPrimaryColor,
               fontSize: 16,
             ),
           ),
           trailing: Text(
-            task.isDone ? 'Done' : DateFormat('hh:mm a').format(task.taskTime),
+            task.isDone
+                ? 'Concluído'
+                // ignore: prefer_interpolation_to_compose_strings
+                : DateFormat('dd/MM/yyyy').format(task.taskTime),
             style: const TextStyle(
               color: kPrimaryColor,
               fontSize: 16,
