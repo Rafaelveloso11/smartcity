@@ -52,7 +52,7 @@ class WelcomeScreen extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/person.jpg"),
+                  image: AssetImage("assets/smartcity_logo.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -70,7 +70,7 @@ class WelcomeScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline4,
                     ),
                     TextSpan(
-                      text: "Bem vindo(a), a cidade inteligente.",
+                      text: "Bem-vindo(a), a cidade inteligente.",
                       style: Theme.of(context).textTheme.headline5,
                     )
                   ],

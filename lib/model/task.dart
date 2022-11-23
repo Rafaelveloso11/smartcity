@@ -20,7 +20,7 @@ List<Task> listTask = [
     false,
   ),
   Task(
-    'Semáforo Quebrado',
+    'Semáforo quebrado',
     'Rua Dias da Cruz, 255 - Méier',
     DateTime(2022, 9, 26, 10, 00),
     false,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:smartcity/constants.dart';
 import 'package:smartcity/home_screen.dart';
+import 'package:smartcity/register_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SignInScreen extends StatelessWidget {
                 child: Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/person.jpg"),
+                        image: AssetImage("assets/smartcity_logo.jpg"),
                         fit: BoxFit.cover,
                         alignment: Alignment.bottomCenter),
                   ),
@@ -40,10 +41,17 @@ class SignInScreen extends StatelessWidget {
                             "Login",
                             style: Theme.of(context).textTheme.headline4,
                           ),
-                          Text(
-                            "Cadastre-se",
-                            style: Theme.of(context).textTheme.button,
-                          )
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const RegisterScreen();
+                                }));
+                              },
+                              child: Text(
+                                "Cadastre-se",
+                                style: Theme.of(context).textTheme.button,
+                              ))
                         ],
                       ),
                       const Spacer(),
