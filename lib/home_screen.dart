@@ -8,8 +8,6 @@ import 'package:smartcity/signin_screen.dart';
 import 'package:smartcity/widget/card_widget.dart';
 import 'package:smartcity/widget/form_widget.dart';
 
-import 'archive_page.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -88,6 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return CardWidget(
                         task: newList[index],
+                        perfil: 'cidadao',
                       );
                     },
                     itemCount: newList.length,

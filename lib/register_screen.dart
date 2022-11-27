@@ -10,7 +10,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final form = GlobalKey<FormState>();
   final List<String> lstProfile = ["Cidadao", "Org. Municipal", "Eq. de Campo"];
   String profile = "Cidadao";
   bool showTextField = false;

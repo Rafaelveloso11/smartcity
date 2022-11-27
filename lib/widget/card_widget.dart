@@ -1,17 +1,21 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:smartcity/constants.dart';
+import 'package:smartcity/widget/managerTaskShow_widget.dart';
+import 'package:smartcity/widget/showTaskDetail_widget.dart';
+import 'package:smartcity/widget/teamTaskShow_widget.dart';
 
 import '../model/task.dart';
 import 'form_widget.dart';
 
 class CardWidget extends StatelessWidget {
   final Task task;
-  const CardWidget({
-    Key? key,
-    required this.task,
-  }) : super(key: key);
+  final String perfil;
+  const CardWidget({Key? key, required this.task, required this.perfil})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +51,18 @@ class CardWidget extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return const FormWidget();
-                });
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              switch (perfil) {
+                case 'Cidadao':
+                  return const ShowTaskDetailWidget();
+                case 'Org. Municipal':
+                  return const ManagerTaskShowWidget();
+                case 'Eq. de Campo':
+                  return TeamTaskShowWidget();
+                default:
+              }
+              return ShowTaskDetailWidget();
+            }));
           },
           child: Card(
             elevation: 8,
