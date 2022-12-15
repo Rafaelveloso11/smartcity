@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 60,
                     ),
                     Text(
-                      'Fulano da Silva',
+                      'Teste da Silva',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 36,
@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) {
-                                    return const SignInScreen();
+                                    return SignInScreen();
                                   }));
                                 },
                                 style: ElevatedButton.styleFrom(

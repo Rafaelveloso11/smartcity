@@ -14,7 +14,6 @@ class ShowTaskDetailWidget extends StatefulWidget {
 class _ShowTaskDetailWidgetState extends State<ShowTaskDetailWidget> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(backgroundColor: kBackGroundColor),
       body: ListView(
@@ -37,7 +36,7 @@ class _ShowTaskDetailWidgetState extends State<ShowTaskDetailWidget> {
                         style: TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.bold,
-                            fontSize: 30.0)),
+                            fontSize: 25.0)),
                   ),
                   const SizedBox(
                     height: 22,
@@ -45,7 +44,7 @@ class _ShowTaskDetailWidgetState extends State<ShowTaskDetailWidget> {
                   Container(
                     alignment: Alignment.centerLeft,
                     margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: Text("Solicitante : Fulano da Silva",
+                    child: Text("Solicitante : Teste da Silva",
                         style: TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.bold,
@@ -111,7 +110,7 @@ class _ShowTaskDetailWidgetState extends State<ShowTaskDetailWidget> {
                         )
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

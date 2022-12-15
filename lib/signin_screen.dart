@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
 import 'package:smartcity/constants.dart';
 import 'package:smartcity/home_screen.dart';
 import 'package:smartcity/register_screen.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        reverse: true,
+        body: SingleChildScrollView(
+      reverse: true,
+      child: Form(
+        key: formKey,
         child: ConstrainedBox(
           constraints:
               BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
@@ -59,8 +63,8 @@ class SignInScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 30),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            Padding(
+                          children: [
+                            const Padding(
                               padding: EdgeInsets.only(right: 8.0),
                               child: Icon(
                                 Icons.perm_identity,
@@ -68,18 +72,25 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                              child: TextField(
-                                decoration: InputDecoration(hintText: "CPF"),
-                                keyboardType: TextInputType.number,
-                              ),
+                              child: TextFormField(
+                                  validator: (value) =>
+                                      (value == null || value.isEmpty)
+                                          ? "Informe o CPF"
+                                          : null,
+                                  decoration:
+                                      const InputDecoration(hintText: "CPF"),
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    MaskedInputFormatter('###.###.###-##')
+                                  ]),
                             )
                           ],
                         ),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Padding(
+                        children: [
+                          const Padding(
                             padding: EdgeInsets.only(right: 8.0),
                             child: Icon(
                               Icons.lock,
@@ -87,10 +98,32 @@ class SignInScreen extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: TextField(
-                              decoration: InputDecoration(hintText: "Senha"),
-                            ),
-                          )
+                            child: TextFormField(
+                                decoration:
+                                    const InputDecoration(hintText: "Senha"),
+                                obscureText: true,
+                                validator: (value) =>
+                                    (value == null || value.isEmpty)
+                                        ? "Informe a senha"
+                                        : null),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const RegisterScreen();
+                                }));
+                              },
+                              child: Text(
+                                "Esqueceu a senha?",
+                                style: Theme.of(context).textTheme.button,
+                              ))
                         ],
                       ),
                       const Spacer(),
@@ -98,16 +131,6 @@ class SignInScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 30),
                         child: Row(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    color: Colors.white.withOpacity(0.5)),
-                              ),
-                              child: Icon(Icons.android,
-                                  color: Colors.white.withOpacity(0.5)),
-                            ),
                             const SizedBox(width: 16),
                             Container(
                               padding: const EdgeInsets.all(16),
@@ -127,10 +150,12 @@ class SignInScreen extends StatelessWidget {
                                     color: kPrimaryColor),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) {
-                                      return const HomeScreen();
-                                    }));
+                                    if (formKey.currentState!.validate()) {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return const HomeScreen();
+                                      }));
+                                    }
                                   },
                                   child: const Icon(
                                     Icons.arrow_forward,
@@ -148,6 +173,6 @@ class SignInScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }

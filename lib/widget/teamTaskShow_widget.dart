@@ -50,7 +50,7 @@ class _TeamTaskShowWidget extends State<TeamTaskShowWidget> {
                   Container(
                     alignment: Alignment.centerLeft,
                     margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: Text("Solicitante : Fulano da Silva",
+                    child: Text("Solicitante : Teste da Silva",
                         style: TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.bold,
